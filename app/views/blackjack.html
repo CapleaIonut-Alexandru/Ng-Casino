@@ -1,0 +1,111 @@
+<div class="container" id="blackjack_page" ng-controller="blackjackCtrl">
+	<div class="row">
+		<div class="col-md-12">
+			<h1 id="titlu" class="animatie-titlu">Blackjack</h1>
+			<div class="pachet"  ng-audio='sounds/button-2.mp3' ng-audio-hover='sounds/button-3.mp3'  ng-click="vm.joaca_blackjack()">
+				<div id="carte" class="carte spades animatie_carte">
+					<span id="spades1" class="simbol">&spades;</span>
+					<p class="play">P</p>
+				</div>
+				<div id="carte" class="carte clubs animatie_carte">
+					<span id="clubs1" class="simbol">&clubs;</span>
+					<p class="play">L</p>
+				</div>
+				<div  id="carte" class="carte diams animatie_carte">
+					<span id="diams1" class="simbol">&diams;</span>
+					<p class="play">A</p>
+				</div>
+				<div id="carte" class="carte hearts animatie_carte">
+					<span id="hearts1" class="simbol">&hearts;</span>
+					<span id="hearts2" class="simbol">&hearts;</span>
+					<p class="notatie">B</p>
+					<p class="play">Y</p>
+				</div>
+			</div>
+			<loading ng-if="vm.loaded"></loading>
+		</div>
+	</div>
+	
+ 	<div class="row">
+		<div class="col-md-12">
+			<div id="spatiu_dealer">
+				<img ng-src="images/cards/{{carte | cartiFilter}}"  ng-repeat="carte in vm.dealerCards" class="carte_joc" ng-audio="sounds/card.wav">
+			</div>
+			
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div id="spatiu_player" >
+				<img ng-src="images/cards/{{carte | cartiFilter}}"  ng-repeat="carte in vm.playerCards" class="carte_joc"   ng-audio="sounds/card.wav">
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3">
+		    <div class="btn-group btn-group-justified">
+		        <div class="btn-group">
+		            <button class="btn btn-primary" id="butoane_optiuni" ng-click="vm.joaca_blackjack()">RESTART</button>
+		        </div>
+		        <div class="btn-group">
+		            <button class="btn btn-warning" id="butoane_optiuni" ng-click="vm.hit()" ng-disabled="vm.playerScore>21 || vm.dealerCards.length>2">HIT</button>
+		        </div>
+		        <div class="btn-group">
+		            <button class="btn btn-danger" id="butoane_optiuni"  ng-click="vm.stay()" ng-disabled="vm.dealerScore>21">STAY</button>
+		        </div>
+		    </div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-3" id="rezultate-joc">
+			<span class="rezultate-individuale">Dealer:{{vm.dealerScore}}</span>
+			<span class="rezultate-individuale">Dealer:{{vm.dealer_runde}}</span>
+			<span class="rezultate-individuale">PLayer:{{vm.playerScore}}</span>
+			<span class="rezultate-individuale">Player:{{vm.player_runde}}</span>
+		</div>
+		<div class="col-md-6">
+			<div class="chips" ng-repeat="jeton in vm.jetoane.jetoane" >
+				<img ng-src="{{jeton.chips}}" class="img-responsive" id="jetoane" ng-click="vm.jetoane.addJetoane(jeton)" ng-audio-hover='sounds/button-3.mp3'/>	
+			</div>
+			<div class="cart" ng-show="cart.length !== 0" ng-repeat="c in vm.jetoane.cart">
+			    <span>{{c.count}} X{{jeton.valoare}} {{c.valoare|currency}}</span>
+			    <button class="btn btn-warning" ng-audio-hover='sounds/button-3.mp3' ng-click="vm.jetoane.removeJeton(c)">X</button>
+			</div>
+			<button type="button" class="buton-pariere"   ng-audio-hover='sounds/button-3.mp3' ng-click="vm.jetoane.pariaza()" ng-disabled="vm.jetoane.suma_pariata>vm.jetoane.suma_in_casa">Pariaza</button>
+			<span>Suma:{{vm.jetoane.suma_pariata|currency}}</span>
+		</div>
+		<div class="col-md-3" id="financiar">
+			<!--<span>Fonduri{{vm.jetoane.suma_in_casa|currency}}</span>
+			<button type="button" class="btn btn-warning"  ng-audio-hover='sounds/button-3.mp3' ng-click="vm.jetoane.depune()">Depune</button>-->
+			<div class="depunere">
+				<button type="button" class="btn btn-primary" ng-click="vm.modal_depunere()">Depune</button>
+			</div>
+		</div>
+	</div>
+</div>
+	<!--
+	<div class="row">
+		<div class="col-md-12">
+			<div class="financiar">
+				<div class="depuneri">
+					<input type="number" id="depunere" name="depunere" ng-model="vm.depunere"/>
+					<span>Fonduri{{vm.jetoane.suma_in_casa|currency}}</span>
+					<button type="button" class="btn btn-warning"  ng-audio-hover='sounds/button-3.mp3' ng-click="vm.jetoane.depune()">Depune</button>
+					<span>Suma Pariata:{{vm.jetoane.suma_pariata|currency}}</span>
+					<button type="button" class="btn btn-warning"   ng-audio-hover='sounds/button-3.mp3' ng-click="vm.jetoane.pariaza()" ng-disabled="vm.jetoane.suma_pariata>vm.jetoane.suma_in_casa">Pariaza</button>
+				</div>
+				<div class="chips" ng-repeat="jeton in vm.jetoane.jetoane" >
+					<img ng-src="{{jeton.chips}}" class="jetoane" ng-click="vm.jetoane.addJetoane(jeton)"/>	
+				</div>
+		   </div>
+		   	<div class="cart" ng-show="cart.length !== 0" ng-repeat="c in vm.jetoane.cart">
+
+		        <span>{{c.count}} X{{jeton.valoare}} {{c.valoare|currency}}</span>
+		        <button class="btn btn-warning" ng-click="vm.jetoane.removeJeton(c)">X</button>
+		    </div>
+		</div>
+	</div>
+</div>
+
+

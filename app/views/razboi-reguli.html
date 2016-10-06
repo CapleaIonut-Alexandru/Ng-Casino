@@ -1,0 +1,28 @@
+<div class="modal-header">
+	<h3 class="modal-title">Razboi - Reguli</h3>
+</div>
+<div class="modal-body">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<div class="reguli-carti" ng-repeat="carte_stanga in carti_stanga">
+					<img ng-src="{{carte_stanga.image2}}" class="win-lose" />
+					<img ng-src="{{carte_stanga.sageata}}" class="sageata"/>
+					<img ng-src="{{carte_stanga.image}}" class="carte_joc" id="carte-stanga" />	
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="reguli-carti" ng-repeat="carte_dreapta in carti_dreapta">
+					<img ng-src="{{carte_dreapta.sageata}}" class="sageata"/>
+					<img ng-src="{{carte_dreapta.image2}}" class="win-lose"/>
+					<img ng-src="{{carte_dreapta.image}}" class="carte_joc" id="carte-dreapta" />
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+<div class="modal-footer">
+	<button class="btn btn-warning" type="button" ng-click="close()">Ok</button>
+	<button class="btn btn-play" type="button" ng-click="close()" ui-sref=".razboi">Play</button>
+</div>

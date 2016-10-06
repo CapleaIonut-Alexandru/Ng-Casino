@@ -1,0 +1,98 @@
+
+<div class="container" id="razboi_page" ng-controller="razboiCtrl">
+	<div class="row">
+		<h1 id="titlu" class="animatie-titlu">Razboi</h1>
+		<div class="col-md-12">
+			<div class="pachet muta_carti" ng-click="vm.joaca_razboi()">
+				<div id="carte" class="carte spades animatie_carte" >
+					<span id="spades1" class="simbol">&spades;</span>
+					<p class="play">P</p>
+				</div>
+				<div id="carte" class="carte clubs animatie_carte">
+					<span id="clubs1" class="simbol">&clubs;</span>
+					<p class="play">L</p>
+				</div>
+				<div  id="carte" class="carte diams animatie_carte">
+					<span id="diams1" class="simbol">&diams;</span>
+					<p class="play">A</p>
+				</div>
+				<div  id="carte" class="carte hearts animatie_carte">
+					<span id="hearts1" class="simbol">&hearts;</span>
+					<span id="hearts2" class="simbol">&hearts;</span>
+					<p class="notatie">W</p>
+					<p class="play">Y</p>
+				</div>
+			</div>
+			<loading ng-if="vm.loaded"></loading>
+		</div>
+	</div>
+	<div class="row">
+
+		<div class="col-md-6">
+			<span>PLayer1:{{vm.game.carti_player1.length}}</span>
+			<span>Player1 castigate:{{vm.game.carti_castigate1.length}}</span>
+			<span class="runde">Dealer:{{vm.dealer_runde}}</span>
+		</div>
+		<div class="col-md-6">
+			<span>Player2:{{vm.game.carti_player2.length}}</span>
+			<span>Player2 castigate:{{vm.game.carti_castigate2.length}}</span>
+			<span class="runde">Player:{{vm.player_runde}}</span>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="financiar">
+
+				<input type="number" id="depunere" name="depunere" ng-model="vm.depunere"/>
+				<input type="number" id="pariu" name="pariu"  ng-model="vm.pariu"/>
+				{{vm.suma_in_casa}}
+				{{vm.suma_pariata}}
+				<button type="button" class="btn btn-warning" ng-click="vm.depune()">Depune</button>
+				<button type="button" class="btn btn-default" ng-click="vm.pariaza()">Pariaza</button>
+				<span>Ceva{{vm.game.rezultat}}</span>
+			</div>
+		</div>
+	</div>	
+	<div id="masa">
+		<div id="spatiu_player1" class="spatiu">
+			<img ng-src="images/cards/{{carte | cartiFilter}}" class="carte_joc"  ng-repeat="carte in vm.game.carti_castigate1">
+			<img ng-src="images/cards/{{carte | cartiFilter}}" class="carte_joc"  ng-repeat="carte in vm.game_casti_player1">
+		</div>
+		<div id="spatiu_player2" class="spatiu">
+			<img ng-src="images/cards/{{carte | cartiFilter}}" class="carte_joc"  ng-repeat="carte in vm.game.carti_castigate2">
+			<img ng-src="images/cards/{{carte | cartiFilter}}" class="carte_joc"  ng-repeat="carte in vm.game.carti_player2">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="financiar">
+				<div class="depuneri">
+					<input type="number" id="depunere" name="depunere" ng-model="vm.depunere"/>
+					<span>Fonduri{{vm.suma_in_casa|currency}}</span>
+					<button type="button" class="btn btn-warning" ng-click="vm.depune()">Depune</button>
+					<span>Suma Pariata:{{vm.jetoane.total|currency}}</span>
+					<button type="button" class="btn btn-warning" ng-click="vm.pariaza()" ng-disabled="vm.jetoane.total>vm.depunere">Pariaza</button>
+				</div>
+				<div class="chips" ng-repeat="jeton in vm.jetoane.jetoane" >
+					<img ng-src="{{jeton.chips}}" class="jetoane" ng-click="vm.jetoane.addJetoane(jeton)"/>	
+				</div>
+		   </div>
+		   	<div class="cart" ng-show="cart.length !== 0" ng-repeat="c in vm.jetoane.cart">
+
+		        <span>{{c.count}} X{{jeton.valoare}} {{c.valoare|currency}}</span>
+		        <button class="btn btn-warning" ng-click="vm.jetoane.removeJeton(c)">X</button>
+		    </div>
+		</div>
+	</div>
+</div>
+    <!--
+    <div class="section" id="shuffling">
+      	<p>Shuffling the Decks</p>
+      	<div class="shuffloader">
+        	<i class="card"></i>
+        	<i class="card"></i>
+        	<i class="card"></i>
+      	</div>
+    </div>-->
+

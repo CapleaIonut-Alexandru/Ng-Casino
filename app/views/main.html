@@ -1,0 +1,120 @@
+<header>
+	<div class="jumbotron text-center" id="heading">
+		<div class="container intro-text">
+			<h1>Hello</h1>
+			<div class="linie-main">
+			</div>
+			<h2>Welcome to Ng-Casino</h2>
+		</div>
+		<div class="top-moving-4">
+		</div>
+		<ul class="social-icons">
+			<li class="social-icons-list"><a href="https://github.com/" class="github"></a></li>
+			<li class="social-icons-list"><a href="https://ro.linkedin.com/" class="linkedin"></a></li>
+			<li class="social-icons-list"><a href="" class="gmail" title="contact me!" data-toggle="popover" data-content="capleaia@gmail.com" data-trigger="click" data-placement="top"></a></li>
+			<li class="social-icons-list"><a href="" class="phone-contact" title="contact me!" data-toggle="popover" data-content="0743902698" data-trigger="click" data-placement="right"></a></li>
+			<li class="social-icons-list"><a href="https://www.facebook.com/edt.axum" class="facebook"></a></li>
+			<li class="social-icons-list"><a href="" class="instagram"></a></li>
+		</ul>    
+		<div class="hasurat">
+		</div>
+	</div>
+</header>
+
+<div class="main">
+	<div class="container">
+		<div class="proposition-block">
+			<div class="row">
+				<div class="col-sm-12 col-md-7">
+					<h1>
+						<p><span class="highlight">Ng-Casino</span></p>
+					</h1>
+					<hr class="hr1" />
+					<p>Un proiect dezvoltat cu Angularjs ce contine 2 jocuri(Blackjack & Razboi) care mi-au dezvoltat gandirea algoritmica.</p>
+				</div>
+				<button class="section-main-about" ui-sref=".about" ng-class="{active:activeTab ==='about'}">About</button>
+			</div>
+		</div>
+		<div class="row"> 
+			<div class="col-md-4">
+				<div class="view view-first">
+					<img ng-src="images/blackjack.png"  class="img-responsive"/>
+					<div class="mask">
+						<div class="content">
+							<h2>Blackjack</h2>
+							<p>Simple Blackjack game create with AngularJs</p>
+							<a ui-sref=".blackjack" class="info" ng-class="{active:activeTab ==='blackjack'}">Play</a>
+							<a ng-click="blackjack_reguli()" class="reguli">Rules</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="view">
+					<div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
+					    <div uib-slide ng-repeat="slide in slides" index="$index">
+					        <img ng-src="{{slide.image}}" style="margin:auto;" class="img-responsive">
+					        <div class="carousel-caption">
+					        </div>
+					    </div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4"> 
+				<div class="view view-first">
+					<img ng-src="images/razboi.png"  class="img-responsive">
+					<div class="mask">
+						<div class="content">
+							<h2>War</h2>
+							<p>Simple War deck game create with AngularJs</p>
+							<a ui-sref=".razboi" class="info" ng-class="{active:activeTab ==='razboi'}">Play</a>
+							<a ng-click="razboi_reguli()" class="reguli">Rules</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="linie-main">
+		</div>
+		<div class="click-arrow" ng-click="informatii_personale = !informatii_personale">
+			<h1>Click</h1>
+		</div>
+		<div class="colturi" id="colt-stanga-sus">
+		</div>
+		<div class="colturi" id="colt-dreapta-sus">
+		</div>
+		<div class="row">
+		  	<div class="col-md-4" id="text-stanga-sus" ng-show="informatii_personale">
+		  		<img ng-src="images/balon-mediu.png" class="img-responsive" />
+		  		<p>Salut,sunt Caplea Ionut Alexandru!</p>
+		  	</div>
+		  	<div class="col-md-4" id="text-dreapta-sus" ng-show="informatii_personale">
+		  		<img ng-src="images/balon-dreapta-sus.png" class="img-responsive"/>
+		  		<p>Aplicatie dezvoltata cu Angularjs</p>
+		  	</div>
+		</div>
+		<div class="row" id="myface">
+		  	<div class="col-md-6 col-md-offset-3">
+		  		<img ng-src="images/face/eu.png" class="img-responsive"/>
+		  	</div>
+		</div>
+		<div class="row">
+		  	<div class="col-md-3" id="text-stanga-jos" ng-show="informatii_personale">
+		  		<img ng-src="images/balon-stanga-jos.png" class="img-responsive"/>
+		  		<div class="about-jocuri">
+		  			<a ui-sref=".blackjack">Blackjack</a>
+		  			<a ui-sref=".razboi">Razboi</a>
+		  		</div>
+		  	</div>
+		  	<div class="col-md-3" id="text-dreapta-jos" ng-show="informatii_personale">
+		  		<img ng-src="images/balon-dreapta-jos.png" class="img-responsive" />
+		  		<p>Va urma...</p>
+		  	</div>
+		</div>
+		<div class="colturi" id="colt-stanga-jos">
+		</div>
+		<div class="colturi" id="colt-dreapta-jos">
+		</div>
+		</div>
+	</div>
+</div>

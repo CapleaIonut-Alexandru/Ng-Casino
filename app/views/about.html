@@ -1,0 +1,127 @@
+
+<div class="about" ng-controller="aboutCtrl">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="view-fata-about">
+                    <div class="icon">
+                        <img ng-src="/images/face/eu.png" class="img-responsive"/>
+                    </div>
+                </div>
+                <h1 class="profile-title">Caplea Ionut-Alexandru</h1>
+                <h2 class="profile-subtitle">Web Developer</h2>
+                <hr class="hr1" />
+                <div class="profile-description">
+                    <p>
+                        In prezent lucrez la cateva proiecte personale.Cand spun asta vreau sa subliniez faptul ca invat atat limbaje de programare noi cat si librarii. Uneori lucrez ca si freelancer.
+                    </p>
+                </div>
+                <div class="profile-contact">
+                    <div class="profile-contact-item">
+                        <p>0743902698  /  capleaia@gmail.com</p>
+                    </div>
+                </div>
+                <div class="arrow-stanga">
+                </div>
+                <div class="phone">
+                </div>
+                <div class="arrow-dreapta">
+                </div>
+                <div class="reactii-fete">
+                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                    <a class="fata-suparat" ng-mouseover="suparat=true" ng-mouseleave="suparat=false">Download</a>
+                    <a class="fata-fericit" ng-mouseover="fericit=true" ng-mouseleave="fericit=false">Download</a>
+                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                    <img ng-src="images/face/suparat.png" ng-show="suparat">
+                    <img ng-src="images/face/fericit.png" ng-show="fericit">
+                </div>
+                <uib-accordion close-others="oneAtATime">
+                    <div uib-accordion-group is-open="status.open" ng-repeat="limbaj in limbaje" id="accordion">
+                        <uib-accordion-heading>
+                            <div class="accordion-heading">
+                                <i class="fa fa-hashtag" aria-hidden="true"></i>
+                                {{limbaj.name}}
+                                <i class="pull-right glyphicon" ng-class="{'glyphicon glyphicon-minus': status.open, 'glyphicon glyphicon-plus': !status.open}"></i>
+                            </div>
+                        </uib-accordion-heading>
+                        <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
+                            <div uib-slide ng-repeat="limbaj_programare in limbaj.limbaje_programare" index="$index">
+                                <img ng-src="{{limbaj_programare.image}}" style="margin:auto;" class="img-responsive">
+                                <div class="carousel-caption">
+                                    {{limbaj_programare.name}}
+                                </div>
+                                <div class="carousel-description">
+                                    {{limbaj_programare.description}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </uib-accordion>
+            </div>
+            <div class="col-md-6">
+                <div class="profile-education">
+                    <h1>Rezumat</h1>
+                    <div class="linie-main">
+                    </div>
+                    <div class="profile-education-title2">
+                        <h2><img ng-src="images/face/carte.png" class="carte-descriere">EDUCATION<img ng-src="images/face/carte.png" class="carte-descriere"></h2>    
+                    </div>
+                    <div class="profile-resume-item">
+                        <h3>Web developer</h3>
+                        <div class="profile-graduation-description">
+                            <p>Am absolvit facultatea Sociologie si Asistenta Sociala din cadrul Universitatii Bucuresti.In cadrul cursurilor de statistica am luat pentru prima data contact cu un program de statistica <a href="https://www.r-project.org/">"R"</a>.Mi s-a parut interesant sa lucrez cu coduri.Sincer sa fiu la inceput nu intelegeam mare lucru dar cu timpul am invesitit multa rabdare in ceea ce urma sa devina o pasiune si anume web design-ul. </p>
+                        </div>
+                    </div>
+                    <div class="profile-aboutMe-description">
+                        <h3>Istoric</h3>
+                        <p>Pe data de 1 octombrie 2015 am inceput o perioade de practica ce a durat 6 luni de zile la compania <a href="http://www.tripsolutions.co.uk/"> "Trip Solutions Limited"</a>.Acolo mi-am dezvoltat gandirea algoritmica si am invatat sa lucrezi cu obiectele in Javascript.Sunt costient ca nu sunt la un nivel ridicat dar sunt dornic sa invat zilnic.Consider ca sunt un autodidact foarte bun.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="col-xs-6">
+                <div class="table-responsive">
+                    <table class="table table-borderless" id="imi-place">
+                        <tbody>
+                            <div class="img-responsive" id="titlu-despre">
+                            </div>
+                            <tr ng-repeat="place in imi_place">
+                                <th scope="row">
+                                    <td>
+                                        <h3 ng-class='rowClass(place, $index)'>{{place.titlu}}</h3>
+                                        <p class="descriere">{{place.descriere}}</p>
+                                    </td>
+                                    <td>
+                                        <img ng-src="{{place.image}}" />
+                                    </td>
+                                </th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <div class="table-responsive">
+                    <table class="table table-borderless" id="imi-displace">
+                        <tbody>
+                            <div class="img-responsive" id="titlu-despre">
+                            </div>
+                            <tr ng-repeat="displace in imi_displace">
+                                <th scope="row">
+                                    <td>
+                                        <img ng-src="{{displace.image}}"/>
+                                    </td>
+                                    <td>
+                                        <h3 ng-class='class_displace(displace,$index)'>{{displace.titlu}}</h3>
+                                        <p class="descriere">{{displace.descriere}}</p>
+                                    </td>
+                                </th>
+                            </tr>
+                        </tbody>
+                    </table>    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

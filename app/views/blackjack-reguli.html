@@ -1,0 +1,15 @@
+<div class="modal-header">
+	<h3 class="modal-title">Blackjack - Reguli</h3>
+</div>
+<div class="modal-body">
+	<div class="" ng-repeat="imagine_reguli_blackjack in imagini_reguli_blackjack">
+		<img ng-src="{{imagine_reguli_blackjack.image}}" class="carte_joc" />
+		<div class="carte_valoare">
+			{{imagine_reguli_blackjack.valoare}}
+		</div>
+	</div>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-warning" type="button" ng-click="close()">Ok</button>
+	<button class="btn btn-play" type="button" ng-click="close()" ui-sref=".blackjack">Play</button>
+</div>

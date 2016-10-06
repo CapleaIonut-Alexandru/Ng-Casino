@@ -1,0 +1,45 @@
+<div class="main-footer">
+	<div class="embed-responsive embed-responsive-16by9" >
+		<video class="embed-responsive-item" loop="true" autoplay="autoplay">
+			<source ng-src="/video/typing.mp4">
+		</video>
+	</div>
+	<div class="form-contact">
+		<div class="hasurat">
+			<h1>Contact</h1>
+		</div>
+		<form class="form"  name="contform" novalidate role="form">	
+			<div class="form-group" ng-class="{'has-error': contform.nume.$invalid && contform.nume.$dirty}">
+				<div class="col-sm-9">
+					<input type="text" id="nume" name="nume" class="form-control" ng-model="cont.nume" ng-required="true" placeholder="nume"  />
+					<span class="help-block" ng-show="contform.nume.$error.required && contform.nume.$dirty ">Adaugati un nume</span>
+				</div>
+			</div>
+
+			<div class="form-group" ng-class="{'has-error': contform.prenume.$invalid && contform.prenume.$dirty}">
+				<div class="col-sm-9">
+					<input type="text" id="prenume" name="prenume" class="form-control" ng-model="cont.prenume" ng-required="true" placeholder="prenume" />
+					<span class="help-block" ng-show="contform.prenume.$error.required && contform.prenume.$dirty ">Adaugati un prenume</span>
+				</div>
+			</div>
+
+			<div class="form-group" ng-class="{'has-error': contform.depunere.$invalid && contform.depunere.$dirty}">
+				<div class="col-sm-9">
+					<input type="number" id="depunere" name="depunere" class="form-control" ng-model="cont.depunere" ng-required="true" placeholder="depunere" />
+					<span class="help-block" ng-show="contform.depunere.$error.required && contform.depunere.$dirty ">Adaugati o suma</span>
+				</div>
+			</div>
+
+			<div class="form-group" ng-class="{'has-error': contform.pariu.$invalid && contform.pariu.$dirty}">
+				<div class="col-sm-9">
+					<input type="number" id="pariu" name="pariu" class="form-control" ng-model="cont.pariu" ng-required="true" placeholder="pariu" />
+					<span class="help-block" ng-show="contform.pariu.$error.required && contform.pariu.$dirty ">Adaugati o suma</span>
+				</div>
+			</div>
+		</form>
+	</div>	
+	<ui-gmap-google-map center='map.center' zoom='map.zoom' draggable="true" options="options">
+		 <ui-gmap-marker coords="marker.coords" options="marker.options" idkey="marker.id">
+        </ui-gmap-marker>
+	</ui-gmap-google-map>
+</div>
