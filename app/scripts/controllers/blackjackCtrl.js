@@ -10,16 +10,12 @@
 	        vm.playerScore = null;;
 			vm.loaded = false;
 			vm.jetoane = new jetoaneSvc.Jetoane();
+			vm.suma_depunere = null;
+			vm.depunere = 0;
 
-			vm.modal_depunere = function(){
-				console.log('open modal');
-	  			$uibModal.open({
-	  				animation:true,
-	  				templateUrl:'/views/modal-depunere.html',	  
-	  				controller:'depunereCtrl',
-	  				controlleAs:'vm',				
-	  			});
-	  		};
+			vm.depune_suma = function(){
+				vm.suma_depunere +=vm.depunere;
+			};
 
 			vm.joaca_blackjack = function(){
 				
@@ -128,23 +124,4 @@
 		    	},3000);	        
 	    	}
   		}
-  		angular
-			.module('angularCasinoApp')
-			.controller('depunereCtrl',depunereCtrl);
-			depunereCtrl.$inject = ['$scope','$uibModalInstance'];
-			function depunereCtrl($scope,$uibModalInstance){
-				$scope.user_account = [{
-				    firstName: '',
-				    lastName: '',
-				    nickName:'',
-				    suma_depusa:0
-				}];
-				$scope.user = $scope.user_account;
-				$scope.close = function(){
-				  	$uibModalInstance.dismiss('cancel');
-				};
-				$scope.depunere_suma = function(){
-					$scope.suma_totala_depusa +=$scope.suma_depusa;
-				};
-			}
 })();

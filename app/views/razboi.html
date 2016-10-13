@@ -1,4 +1,3 @@
-
 <div class="container" id="razboi_page" ng-controller="razboiCtrl">
 	<div class="row">
 		<h1 id="titlu" class="animatie-titlu">Razboi</h1>
@@ -26,73 +25,38 @@
 			<loading ng-if="vm.loaded"></loading>
 		</div>
 	</div>
-	<div class="row">
-
-		<div class="col-md-6">
-			<span>PLayer1:{{vm.game.carti_player1.length}}</span>
-			<span>Player1 castigate:{{vm.game.carti_castigate1.length}}</span>
-			<span class="runde">Dealer:{{vm.dealer_runde}}</span>
-		</div>
-		<div class="col-md-6">
-			<span>Player2:{{vm.game.carti_player2.length}}</span>
-			<span>Player2 castigate:{{vm.game.carti_castigate2.length}}</span>
-			<span class="runde">Player:{{vm.player_runde}}</span>
-		</div>
-	</div>
-
-	<div class="row">
-		<div class="col-md-12">
-			<div class="financiar">
-
-				<input type="number" id="depunere" name="depunere" ng-model="vm.depunere"/>
-				<input type="number" id="pariu" name="pariu"  ng-model="vm.pariu"/>
-				{{vm.suma_in_casa}}
-				{{vm.suma_pariata}}
-				<button type="button" class="btn btn-warning" ng-click="vm.depune()">Depune</button>
-				<button type="button" class="btn btn-default" ng-click="vm.pariaza()">Pariaza</button>
-				<span>Ceva{{vm.game.rezultat}}</span>
-			</div>
-		</div>
-	</div>	
+	<div class="row">	
 	<div id="masa">
-		<div id="spatiu_player1" class="spatiu">
+		<div id="spatiu_player1" class="col-md-6">
 			<img ng-src="images/cards/{{carte | cartiFilter}}" class="carte_joc"  ng-repeat="carte in vm.game.carti_castigate1">
 			<img ng-src="images/cards/{{carte | cartiFilter}}" class="carte_joc"  ng-repeat="carte in vm.game_casti_player1">
 		</div>
-		<div id="spatiu_player2" class="spatiu">
+		<div id="spatiu_player2" class="col-md-6">
 			<img ng-src="images/cards/{{carte | cartiFilter}}" class="carte_joc"  ng-repeat="carte in vm.game.carti_castigate2">
 			<img ng-src="images/cards/{{carte | cartiFilter}}" class="carte_joc"  ng-repeat="carte in vm.game.carti_player2">
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-md-12">
-			<div class="financiar">
-				<div class="depuneri">
-					<input type="number" id="depunere" name="depunere" ng-model="vm.depunere"/>
-					<span>Fonduri{{vm.suma_in_casa|currency}}</span>
-					<button type="button" class="btn btn-warning" ng-click="vm.depune()">Depune</button>
-					<span>Suma Pariata:{{vm.jetoane.total|currency}}</span>
-					<button type="button" class="btn btn-warning" ng-click="vm.pariaza()" ng-disabled="vm.jetoane.total>vm.depunere">Pariaza</button>
-				</div>
-				<div class="chips" ng-repeat="jeton in vm.jetoane.jetoane" >
-					<img ng-src="{{jeton.chips}}" class="jetoane" ng-click="vm.jetoane.addJetoane(jeton)"/>	
-				</div>
-		   </div>
-		   	<div class="cart" ng-show="cart.length !== 0" ng-repeat="c in vm.jetoane.cart">
-
-		        <span>{{c.count}} X{{jeton.valoare}} {{c.valoare|currency}}</span>
-		        <button class="btn btn-warning" ng-click="vm.jetoane.removeJeton(c)">X</button>
-		    </div>
+		<div class="col-md-3">
+			<span>PLayer1:{{vm.game.carti_player1.length}}</span>
+			<span>Player1 castigate:{{vm.game.carti_castigate1.length}}</span>
+			<span class="runde">Dealer:{{vm.dealer_runde}}</span>
+			<span>Player2:{{vm.game.carti_player2.length}}</span>
+			<span>Player2 castigate:{{vm.game.carti_castigate2.length}}</span>
+			<span class="runde">Player:{{vm.player_runde}}</span>
+		</div>
+		<div class="col-md-6">
+			<div class="chips" ng-repeat="jeton in vm.jetoane.jetoane" >
+				<img ng-src="{{jeton.chips}}" class="img-responsive" id="jetoane" ng-click="vm.jetoane.addJetoane(jeton)" ng-audio-hover='sounds/button-3.mp3'/>	
+			</div>
+			<div class="cart" ng-show="cart.length !== 0" ng-repeat="c in vm.jetoane.cart">
+			    <span>{{c.count}} X{{jeton.valoare}} {{c.valoare|currency}}</span>
+			    <button class="btn btn-warning" ng-audio-hover='sounds/button-3.mp3' ng-click="vm.jetoane.removeJeton(c)">X</button>
+			</div>
+			<button type="button" class="buton-pariere"   ng-audio-hover='sounds/button-3.mp3' ng-click="vm.jetoane.pariaza()" ng-disabled="vm.jetoane.suma_pariata>vm.jetoane.suma_in_casa">Pariaza</button>
+			<span>Suma:{{vm.jetoane.suma_pariata|currency}}</span>
+		</div>
+		<div class="col-md-3" id="financiar">
 		</div>
 	</div>
 </div>
-    <!--
-    <div class="section" id="shuffling">
-      	<p>Shuffling the Decks</p>
-      	<div class="shuffloader">
-        	<i class="card"></i>
-        	<i class="card"></i>
-        	<i class="card"></i>
-      	</div>
-    </div>-->
-

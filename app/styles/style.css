@@ -120,7 +120,9 @@ body {
    -webkit-transform: translateX(0);
    opacity: 1;
 }
-
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Corben', Georgia, Times, serif;
+}
 /*
  *
  *
@@ -130,23 +132,15 @@ body {
  * ==========================================================
  */
 
-#navbar{
+#navbar-initial{
    min-height: 100%;
    height: 400px;
    position: relative;
-}
-#navbar:before{
-   content: '';
-   width: 100%;
-   height: 100%;
-   position: absolute;
-   z-index: -1;
-   top: 0px;
-   left: 0px;
    background: url("../images/cover-menu.jpg")center center fixed no-repeat;
    background-size: cover;
    -webkit-background-size:cover;
 }
+
 .navbar-default .navbar-nav > li > a {
    color: #000;
 }
@@ -160,6 +154,37 @@ body {
 }
 .navbar{
    margin-bottom: 0;
+}
+.navbar-toggle {
+  border: none;
+  background: transparent !important;
+}
+.navbar-toggle:hover {
+  background: transparent !important;
+}
+.navbar-toggle .icon-bar {
+  width: 22px;
+  transition: all 0.2s;
+}
+.navbar-toggle .top-bar {
+  transform: rotate(45deg);
+  transform-origin: 10% 10%;
+}
+.navbar-toggle .middle-bar {
+  opacity: 0;
+}
+.navbar-toggle .bottom-bar {
+  transform: rotate(-45deg);
+  transform-origin: 10% 90%;
+}
+.navbar-toggle.collapsed .top-bar {
+  transform: rotate(0);
+}
+.navbar-toggle.collapsed .middle-bar {
+  opacity: 1;
+}
+.navbar-toggle.collapsed .bottom-bar {
+  transform: rotate(0);
 }
 /*
  *
@@ -827,20 +852,8 @@ body {
    color: white;
 }
 
-.reguli-carti .img-responsive{
-   max-width: 10%;
-   max-height: 10%;
-}
-#carte-stanga{
-   float: left;
-   display: inline-block;
-}
-#carte-dreapta{
-   float: right;
-   display: inline-block;
-}
-.reguli-carti{
-   display: inline-block;
+#carti-stanga{
+
 }
 
 
@@ -1236,6 +1249,12 @@ body {
    background-image: url('/images/face/modal-bg.png');
    background-size: cover;
    -webkit-background-size:cover;
+   background-color: rgba(44, 174, 98, 0.8);
+   width: 100%;
+   height: 100%;
+}
+#jumbotron_blackjack{
+   background-image: url('/images/popa.png');
    background-color: rgba(44, 174, 98, 0.8);
    width: 100%;
    height: 100%;
@@ -1726,3 +1745,98 @@ body {
 .angular-google-map-container{
    right: 50px;
 }
+
+.descriere-joc p{
+   font-size: 16px;
+}
+.descriere-joc h3{
+   text-align: center;
+}
+.modal-content #jumbotron_reguli_razboi{
+   background-image: url('/images/top-moving-4.png');
+   background-color: white;
+}
+#jumbotron_reguli_razboi h2{
+   text-align: center;
+   background-image: url('/images/top-moving-3.png');
+}
+#jumbotron_reguli_razboi p{
+   font-size: 17px;
+   background-image: url('/images/top-moving-2.png');
+}
+.dealer-icon{
+   width: 100px;
+   height: 100px;
+}
+
+
+ 
+/*
+.spatiu{
+   width: 150px;
+   height: 220px;
+   border:3px solid yellow;
+   border-radius: 18px;
+   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+   transition: all 0 cubic-bezier(0.175, 0.885, 0.32, 1.275);
+   transition-timing-function: cubic-bezier(0.175, 0.885, 0.45, 1.595);
+}
+
+
+.spatiu.ng-enter{
+   transform: scale(3);
+   -webkit-transform:scale(3);
+   transition-duration:1.5s;
+   -webkit-transition-duration:1.5s;
+   opacity: 0; 
+}
+.spatiu.ng-enter-active{
+   transform: scale(1);
+   -webkit-transform:scale(1);
+   opacity: 1;
+}
+.spatiu.ng-leave{
+   transform: scale(1);
+   -webkit-transform:scale(1);
+   transition-duration: 1.5s;
+   -webkit-transition-duration:1.5s;
+   transition-delay: 0.7s;
+   -webkit-transition-delay:0.7s;
+   opacity: 1;
+}
+.spatiu.ng-leave-active{
+   transform: scale(3);
+   -webkit-transform:scale(3);
+   opacity: 0;
+}
+.spatiu.ng-hide-add{
+   transform: scale(1);
+   -webkit-transform:scale(1);
+   transition-duration: 1.5s;
+   -webkit-transition-duration:1.5s;
+   opacity: 1;
+}
+.spatiu.ng-hide-add.ng-hide-add-active{
+   transform: scale(3);
+   -webkit-transform:scale(3);
+   opacity: 0;
+}
+.spatiu.ng-hide-remove{
+   transform: scale(3);
+   -webkit-transform:scale(3);
+   transition-duration: 1.5s;
+   -webkit-transition-duration:1.5s;
+   opacity: 0;
+}
+.spatiu.ng-hide-remove.ng-hide-remove-active{
+   transform: scale(1);
+   -webkit-transform:scale(1);
+   opacity: 1;
+}*/
+
+
+
+
+
+
+

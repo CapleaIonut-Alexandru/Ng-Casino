@@ -10,6 +10,7 @@
         <meta name="author"      content="Caplea Ionut-Alexandru">
 
         <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Luckiest+Guy'/>
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Corben:bold" >
         <!-- endbower -->
         <link rel='stylesheet' type='text/css' href="bower_components/animate.css/animate.css"/>
         <link rel='stylesheet' type='text/css' href="bower_components/bootstrap/dist/css/bootstrap.css" />
@@ -20,12 +21,12 @@
         <!-- endbuild -->
         <!-- build:css(.tmp) styles/main.css -->
         <link rel='stylesheet' type='text/css' href="styles/style.css"/>
-        <link rel='stylesheet' type='text/css' href="styles/animatii.css"/>
     <!-- endbuild -->
     </head>
     <body ng-app="angularCasinoApp">
         <div ui-view="navbar"></div> 
-        <div ui-view="content"></div>
+        <div ui-view="header"></div>
+        <div ui-view="content" ></div>
         <div ui-view="footer"></div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -72,12 +73,12 @@
         <script src="scripts/app.config.js"></script>
 
         <!--CONTROLLERS-->
-        <script src="scripts/controllers/about.js"></script>
-        <script src="scripts/controllers/blackjack.js"></script>
+        <script src="scripts/controllers/aboutCtrl.js"></script>
+        <script src="scripts/controllers/blackjackCtrl.js"></script>
         <script src="scripts/controllers/footerCtrl.js"></script>
-        <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/mainCtrl.js"></script>
         <script src="scripts/controllers/navbarCtrl.js"></script>
-        <script src="scripts/controllers/razboi.js"></script>
+        <script src="scripts/controllers/razboiCtrl.js"></script>
 
 
         <!--DIRECTIVES-->
@@ -85,14 +86,14 @@
         <script src="scripts/directives/loading-directive.js"></script> 
 
         <!--FILTERS-->
-        <script src="scripts/filters/cartifilter.js"></script>
+        <script src="scripts/filters/cartiFilter.js"></script>
 
         <!--SERVICES-->
-        <script src="scripts/services/blackjacksvc.js"></script>
-        <script src="scripts/services/cartesvc.js"></script>
-        <script src="scripts/services/jetoanesvc.js"></script>
-        <script src="scripts/services/pachetsvc.js"></script>
-        <script src="scripts/services/razboisvc.js"></script>
+        <script src="scripts/services/blackjackSvc.js"></script>
+        <script src="scripts/services/carteSvc.js"></script>
+        <script src="scripts/services/jetoaneSvc.js"></script>
+        <script src="scripts/services/pachetSvc.js"></script>
+        <script src="scripts/services/razboiSvc.js"></script>
         <!-- endbuild -->
     </body>
 </html>

@@ -11,7 +11,7 @@
 					<span id="clubs1" class="simbol">&clubs;</span>
 					<p class="play">L</p>
 				</div>
-				<div  id="carte" class="carte diams animatie_carte">
+				<div id="carte" class="carte diams animatie_carte">
 					<span id="diams1" class="simbol">&diams;</span>
 					<p class="play">A</p>
 				</div>
@@ -25,16 +25,14 @@
 			<loading ng-if="vm.loaded"></loading>
 		</div>
 	</div>
-	
  	<div class="row">
 		<div class="col-md-12">
+			<img ng-src="images/svg/dealer-icon.svg" class="dealer-icon">
 			<div id="spatiu_dealer">
 				<img ng-src="images/cards/{{carte | cartiFilter}}"  ng-repeat="carte in vm.dealerCards" class="carte_joc" ng-audio="sounds/card.wav">
 			</div>
-			
 		</div>
 	</div>
-
 	<div class="row">
 		<div class="col-md-12">
 			<div id="spatiu_player" >
@@ -79,33 +77,10 @@
 			<!--<span>Fonduri{{vm.jetoane.suma_in_casa|currency}}</span>
 			<button type="button" class="btn btn-warning"  ng-audio-hover='sounds/button-3.mp3' ng-click="vm.jetoane.depune()">Depune</button>-->
 			<div class="depunere">
-				<button type="button" class="btn btn-primary" ng-click="vm.modal_depunere()">Depune</button>
+				<input ng-model="vm.depunere">
+				<button ng-click="vm.depune_suma()">Depune</button>
+				<span>{{vm.suma_depunere}}</span>
 			</div>
 		</div>
 	</div>
 </div>
-	<!--
-	<div class="row">
-		<div class="col-md-12">
-			<div class="financiar">
-				<div class="depuneri">
-					<input type="number" id="depunere" name="depunere" ng-model="vm.depunere"/>
-					<span>Fonduri{{vm.jetoane.suma_in_casa|currency}}</span>
-					<button type="button" class="btn btn-warning"  ng-audio-hover='sounds/button-3.mp3' ng-click="vm.jetoane.depune()">Depune</button>
-					<span>Suma Pariata:{{vm.jetoane.suma_pariata|currency}}</span>
-					<button type="button" class="btn btn-warning"   ng-audio-hover='sounds/button-3.mp3' ng-click="vm.jetoane.pariaza()" ng-disabled="vm.jetoane.suma_pariata>vm.jetoane.suma_in_casa">Pariaza</button>
-				</div>
-				<div class="chips" ng-repeat="jeton in vm.jetoane.jetoane" >
-					<img ng-src="{{jeton.chips}}" class="jetoane" ng-click="vm.jetoane.addJetoane(jeton)"/>	
-				</div>
-		   </div>
-		   	<div class="cart" ng-show="cart.length !== 0" ng-repeat="c in vm.jetoane.cart">
-
-		        <span>{{c.count}} X{{jeton.valoare}} {{c.valoare|currency}}</span>
-		        <button class="btn btn-warning" ng-click="vm.jetoane.removeJeton(c)">X</button>
-		    </div>
-		</div>
-	</div>
-</div>
-
-

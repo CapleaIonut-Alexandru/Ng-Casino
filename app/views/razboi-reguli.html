@@ -1,26 +1,37 @@
 <div class="modal-header">
-	<h3 class="modal-title">Razboi - Reguli</h3>
+	<h3 class="modal-title">Reguli</h3>
+</div>
+<div class="jumbotron" id="jumbotron_reguli_razboi">
+	<h2>Razboi</h2>
+	<p>Un joc de carti pe care probabil toata lumea l-a jucat macar o data in viata.</p>
 </div>
 <div class="modal-body">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-6">
-				<div class="reguli-carti" ng-repeat="carte_stanga in carti_stanga">
-					<img ng-src="{{carte_stanga.image2}}" class="win-lose" />
-					<img ng-src="{{carte_stanga.sageata}}" class="sageata"/>
-					<img ng-src="{{carte_stanga.image}}" class="carte_joc" id="carte-stanga" />	
-				</div>
-			</div>
-			<div class="col-md-6">
-				<div class="reguli-carti" ng-repeat="carte_dreapta in carti_dreapta">
-					<img ng-src="{{carte_dreapta.sageata}}" class="sageata"/>
-					<img ng-src="{{carte_dreapta.image2}}" class="win-lose"/>
-					<img ng-src="{{carte_dreapta.image}}" class="carte_joc" id="carte-dreapta" />
-				</div>
-			</div>
+	<div class="row">
+		<div class="col-md-8">
+			<article class="descriere-joc">
+				<h3>Numarul de jucatori</h3>
+				<p>Minim jucatori: 3 Maxim jucatori: oricat de multi, astfel incat fiecare jucator sa aiba un numar "decent" de carti in mana (sa nu aiba prea putine carti)</p>
+				<h3>Cartile la Razboi</h3>
+				<p>Se impart cartile in mod egal la fiecare jucator. Daca nu se pot imparti in mod egal atunci se scot din joc incepand cu cele mai mici(3, 3 etc) atatea carti cat este nevoie. AS-ul este cea mai mare carte la Razboi, urmat de K, D, J etc.</p>
+				<h3>Cine castiga?</h3>
+				<p>Castigatorul este acela care acumuleaza toate cartile din joc (ceilalti nu mai au nici o carte in mana).</p>
+				<h3>Regulile de joc la Razboi</h3>
+				<p>Dupa ce au fost impartite cartile in mod egal este ales un prim jucator. Cartile se tin sub forma de teanc, fara sa li se vada fata.</p>
+				<h3>Cine castiga?</h3>
+				<p>Castigatorul este acela care acumuleaza toate cartile din joc (ceilalti nu mai au nici o carte in mana).</p>
+				<h3>Regulile de joc la Razboi</h3>
+				<p>Dupa ce au fost impartite cartile in mod egal este ales un prim jucator. Cartile se tin sub forma de teanc, fara sa li se vada fata.</p><p>Primul jucator da o carte pe masa cu fata in sus. Ceilalti jucatori, in ordine, vor da cate o carte din teancul propriu. Runda este castigata de cel care are cartea cea mai mare. In cazul in care doi sau mai multi jucatori au aceleasi carti(de exemplu 10 - 10, 4 - 4 - 4 etc), se da "razboi", adica fiecare jucator implicat va pune peste cartea de razboi, in ordine din teancul propriu, atatea carti cate indica cartea de razboi (de exemplu fiecare pune cate 10 carti, cate 4 carti etc). Castiga cel care are cartea cea mai mare si astfel ia toate cartile din "razboi". Daca se intalnesc iarasi carti de acelasi fel, procedeul se reia. Daca se face razboi la as, atunci fiecare jucator va pune cate 11 carti.Dupa terminarea unei runde, castigatorul ia cartile de pe masa si le pune la sfarsitul teancului propriu.</p>
+			</article>
+		</div>
+		<div class="col-md-2" id="carti-stanga" ng-repeat="carte_stanga in carti_stanga">
+			<img ng-src="{{carte_stanga.image2}}" class="win-lose" />
+			<img ng-src="{{carte_stanga.image}}" class="carte_joc" />	
+		</div>
+		<div class="col-md-2" id="carti-dreapta" ng-repeat="carte_dreapta in carti_dreapta">
+			<img ng-src="{{carte_dreapta.image2}}" class="win-lose"/>
+			<img ng-src="{{carte_dreapta.image}}" class="carte_joc" />
 		</div>
 	</div>
-
 </div>
 <div class="modal-footer">
 	<button class="btn btn-warning" type="button" ng-click="close()">Ok</button>

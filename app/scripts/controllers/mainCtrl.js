@@ -19,6 +19,7 @@
 				{image: 'images/carte3.jpg'},
 				{image: 'images/carte5.jpg'},
 			];
+
 			
 			$scope.blackjack_reguli = function(){
 				console.log('open modal');
@@ -64,15 +65,15 @@
 			};
 
 			$scope.carti_stanga = [
-				{image:'images/cards/10_trefla.jpg', image2:'images/win.png',sageata:'images/sageata-stanga.png'},
-				{image:'images/cards/13_inima rosie.jpg',image2:'images/win.png', sageata:'images/sageata-stanga.png'},
-				{image:'images/cards/11_inima rosie.jpg',image2:'images/win.png',sageata:'images/sageata-stanga.png'},
+				{image:'images/cards/10_trefla.jpg', image2:'images/win.png'},
+				{image:'images/cards/13_inima rosie.jpg',image2:'images/win.png'},
+				{image:'images/cards/11_inima rosie.jpg',image2:'images/win.png'},
 				
 			];
 			$scope.carti_dreapta = [
-				{image:'images/cards/9_romb.jpg',image2:'images/lose.png',sageata:'images/sageata-stanga.png'},
-				{image:'images/cards/13_inima neagra.jpg',image2:'images/lose.png', sageata:'images/sageata-stanga.png'},
-				{image:'images/cards/11_trefla.jpg',image2:'images/lose.png',sageata:'images/sageata-stanga.png'},
+				{image:'images/cards/9_romb.jpg',image2:'images/lose.png'},
+				{image:'images/cards/13_inima neagra.jpg',image2:'images/lose.png'},
+				{image:'images/cards/11_trefla.jpg',image2:'images/lose.png'},
 			];
 			
 		}

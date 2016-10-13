@@ -21,6 +21,9 @@
 			  				controller:'navbarCtrl',
 			  				controllerAs:'vm'
 			  			},
+			  			'header':{
+			  				templateUrl:'/views/header-main.html'
+			  			},
 			  			'content':{
 			  				templateUrl:'/views/main.html',
 			  				controller:'mainCtrl',
@@ -41,6 +44,9 @@
 					  		controller:'aboutCtrl',
 					  		controllerAs:'vm',
 					  		data:{activeTab:'about'}
+			  			},
+			  			'header@':{
+			  				templateUrl:'/views/header-about.html'
 			  			}
 			  		}
 			  	})
@@ -52,6 +58,11 @@
 					  		controller:'blackjackCtrl',
 					  		controllerAs:'vm',
 					  		data:{activeTab:'blackjack'}
+			  			},
+			  			'header@':{
+			  				templateUrl:'/views/header-blackjack.html',
+			  				controller:'blackjackCtrl',
+			  				controllerAs:'vm'
 			  			}
 			  		}
 			  	})
@@ -63,10 +74,16 @@
 					  		controller:'razboiCtrl',
 					  		controllerAs:'vm',
 					  		data:{activeTab:'razboi'}
+			  			},
+			  			'header@':{
+			  				templateUrl:'/views/header-razboi.html',
+			  				controller:'razboiCtrl',
+			  				controllerAs:'vm'
 			  			}
 			  		}
 			  	});
 
 			$urlRouterProvider.otherwise('/');
 		}
+
 })();
